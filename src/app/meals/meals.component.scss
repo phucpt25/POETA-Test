@@ -1,0 +1,21 @@
+table{
+    border: {
+        right: 1px solid #333;
+        left: 1px solid #333;
+    }
+    th,td{
+        width: 25%;
+        border: {
+            top: 1px solid #333;
+            bottom: 1px solid #333;
+        };
+        &:first-child{
+            width: 15%;
+        }
+        text-align: center;
+    }
+    th{
+        color: #fff;
+        background: #98989a;
+    }
+}

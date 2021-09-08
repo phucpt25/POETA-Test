@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{data?.title}}</h5>
+    <button type="button" class="close" data-dismiss="modal" (click)="closeModal('dismiss')">
+        <span aria-hidden="false">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div *ngIf="data?.action === 'add'">
+        <p>Input the meal name will count</p>
+        <input type="text" ngbAutofocus placeholder="Name" [(ngModel)]="name" (keyup.enter)="deliveDataToParent()" maxlength="20">
+    </div>
+    <div *ngIf="data?.action === 'edit'">
+        <input type="text" ngbAutofocus placeholder="Name" [(ngModel)]="name" (keyup.enter)="deliveDataToParent()" maxlength="20">
+        <p>The count is {{data?.count}}</p>
+    </div>
+    <div *ngIf="data?.action === 'delete'">
+        <p ngbAutofocus>Are you want to delete "{{data?.name}}" with the count is {{data?.count}}</p>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="deliveDataToParent()" *ngIf="data?.action === 'add'">Add New</button>
+    <button type="button" class="btn btn-primary" (click)="deliveDataToParent()" *ngIf="data?.action === 'edit'">Update</button>
+    <button type="button" class="btn btn-danger" (click)="deliveDataToParent()" *ngIf="data?.action === 'delete'">Delete</button>
+</div>

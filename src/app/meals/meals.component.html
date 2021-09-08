@@ -1,0 +1,20 @@
+<button class="btn float-right mb-2" (click)="openAddNewModal()">Add new</button>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Meal</th>
+      <th>Count</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="mealList.length">
+    <tr *ngFor="let meal of mealList">
+      <td>{{meal.id}}</td>
+      <td>{{meal.name}}</td>
+      <td>{{meal.count}}</td>
+      <td><a class="edit" (click)="openEditModal(meal.id)">Edit</a> | <a class="delete"
+          (click)="openDeleteModal(meal.id)">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
